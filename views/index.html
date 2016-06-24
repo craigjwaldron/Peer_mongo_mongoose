@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="vendors/angular.min.js" charset="utf-8"></script>
+    <script src="scripts/script.js" charset="utf-8"></script>
+  </head>
+  <body>
+    <div ng-include="'partials/header.html'"></div>
+    <div ng-controller="assignmentController">
+
+      <form>
+        <p>Assignment Number: </p>
+        <input type="number" name="assignNumber" id='assignNumber'
+         value="" ng-model='assignNumber'>
+         <p>Student Name: </p>
+        <input type="text" name="studentName" ng-model='studentName'
+          value="">
+          <p>Score: </p>
+        <input type="number" name="score" ng-model='score'
+          value="">
+          <br><br>
+        <input type="button" name="name" value="submit"
+          ng-click="newAssignment()">
+      </form>
+
+      <!-- <div ng-include="'partials/button.html'"></div> -->
+      <div ng-repeat="assignment in assignments">
+        <p>Assignment #: {{assignment.assignment_number}}</p>
+        <p>Student: {{assignment.student_name}}</p>
+        <p>Score: {{assignment.score}}</p>
+        <p>Completed On: {{assignment.date_completed}}</p>
+        <hr>
+      </div>
+    </div>
+  </body>
+</html>
